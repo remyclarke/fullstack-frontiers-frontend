@@ -75,7 +75,8 @@ const Login = () => {
 
   return (
     <div>
-      <h2>Use the DemoUser button to login and save time durin demo</h2>
+      <h2>Use the DemoUser button to login and save time during demo</h2>
+      <h3> Remove the 'br' tags and these instructions if you use this code</h3>
       <button onClick={handleSignIn}>Demo User</button>
       <br />
       <br />
