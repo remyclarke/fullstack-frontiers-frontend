@@ -39,6 +39,7 @@ const Login = () => {
     }
   }
 
+  // Login Function
   async function handleSubmit(e) {
     e.preventDefault()
     if (!user.username || !user.password) {
@@ -49,6 +50,7 @@ const Login = () => {
     postFetch(user)
   }
 
+  //Demo User Login Function
   async function handleDemoSignIn(e) {
     e.preventDefault()
     const user = { username: 'demo', password: 'pass' }
