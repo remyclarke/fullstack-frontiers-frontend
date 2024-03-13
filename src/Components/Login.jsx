@@ -8,9 +8,9 @@ const Login = () => {
   function handleChange(event) {
     setUser({ ...user, [event.target.id]: event.target.value })
   }
+  // This function is being used in two places. It can be extracted to a helpers.js file
 
-  async function handleSubmit(e) {
-    e.preventDefault()
+  async function postFetch(user) {
     const csrfToken = document.cookie
       .split('; ')
       .find((row) => row.startsWith('XSRF-TOKEN='))
@@ -39,36 +39,20 @@ const Login = () => {
     }
   }
 
-  async function handleSignIn(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    const demoUser = { username: 'demo', password: 'pass' }
-
-    const csrfToken = document.cookie
-      .split('; ')
-      .find((row) => row.startsWith('XSRF-TOKEN='))
-      .split('=')[1] // Extract CSRF token from cookies
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'CSRF-Token': csrfToken, // Include CSRF token in request headers
-      },
-      credentials: 'include', // Important: Include cookies in the request
-      body: JSON.stringify(demoUser),
+    if (!user.username || !user.password) {
+      alert('You must enter a username and password')
+      return
     }
 
-    try {
-      const res = await fetch(`${URL}/api/auth/login`, options)
-      if (!res.ok) {
-        alert('Login failed')
-        setUser({ username: '', password: '' })
-        throw new Error('Registration failed')
-      }
+    postFetch(user)
+  }
 
-      navigate('/dashboard')
-    } catch (error) {
-      console.error('Error during registration:', error)
-    }
+  async function handleDemoSignIn(e) {
+    e.preventDefault()
+    const user = { username: 'demo', password: 'pass' }
+    postFetch(user)
   }
 
   // BUILD OUT YOUR FORM PROPERLY WITH LABELS AND WHATEVER CSS FRAMEWORK YOU MAY USE OR VANILLA CSS. THIS IS JUST A BOILERPLATE
@@ -77,7 +61,7 @@ const Login = () => {
     <div>
       <h2>Use the DemoUser button to login and save time during demo</h2>
       <h3> Remove the 'br' tags and these instructions if you use this code</h3>
-      <button onClick={handleSignIn}>Demo User</button>
+      <button onClick={handleDemoSignIn}>Demo User</button>
       <br />
       <br />
       <br />
