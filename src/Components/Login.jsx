@@ -39,11 +39,48 @@ const Login = () => {
     }
   }
 
+  async function handleSignIn(e) {
+    e.preventDefault()
+    const demoUser = { username: 'demo', password: 'pass' }
+
+    const csrfToken = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('XSRF-TOKEN='))
+      .split('=')[1] // Extract CSRF token from cookies
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'CSRF-Token': csrfToken, // Include CSRF token in request headers
+      },
+      credentials: 'include', // Important: Include cookies in the request
+      body: JSON.stringify(demoUser),
+    }
+
+    try {
+      const res = await fetch(`${URL}/api/auth/login`, options)
+      if (!res.ok) {
+        alert('Login failed')
+        setUser({ username: '', password: '' })
+        throw new Error('Registration failed')
+      }
+
+      navigate('/dashboard')
+    } catch (error) {
+      console.error('Error during registration:', error)
+    }
+  }
+
   // BUILD OUT YOUR FORM PROPERLY WITH LABELS AND WHATEVER CSS FRAMEWORK YOU MAY USE OR VANILLA CSS. THIS IS JUST A BOILERPLATE
 
   return (
     <div>
-      <h1>Login</h1>
+      <h2>Use the DemoUser button to login and save time durin demo</h2>
+      <button onClick={handleSignIn}>Demo User</button>
+      <br />
+      <br />
+      <br />
+      <h4>Login</h4>
       <form onSubmit={handleSubmit}>
         <input
           id="username"
