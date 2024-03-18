@@ -43,32 +43,39 @@ const Register = () => {
     <div>
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          id="username"
-          value={user.username}
-          type="text"
-          placeholder="username"
-          onChange={handleChange}
-          autoComplete="username"
-        />
+        <label htmlFor="username">
+          <input
+            id="username"
+            value={user.username}
+            type="text"
+            placeholder="username"
+            onChange={handleChange}
+            autoComplete="username"
+          />
+        </label>
         <br />
-        <input
-          id="email"
-          value={user.email}
-          type="email"
-          placeholder="email"
-          onChange={handleChange}
-          autoComplete="email"
-        />
+
+        <label htmlFor="email">
+          <input
+            id="email"
+            value={user.email}
+            type="email"
+            placeholder="email"
+            onChange={handleChange}
+            autoComplete="email"
+          />
+        </label>
         <br />
-        <input
-          id="password"
-          value={user.password}
-          type="password"
-          placeholder="password"
-          onChange={handleChange}
-          autoComplete="current-password"
-        />
+        <label htmlFor="password">
+          <input
+            id="password"
+            value={user.password}
+            type="password"
+            placeholder="password"
+            onChange={handleChange}
+            autoComplete="current-password"
+          />
+        </label>
         <br />
         <button>Submit</button>
       </form>
