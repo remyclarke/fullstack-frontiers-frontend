@@ -6,7 +6,17 @@ In this Frontend app you will have a `ProtectedRoute.jsx` component that you wil
 
 The component is called a Higher Order component. It works in a similar way to the `<BrowserRouter>` component where we wrap it around the `<App />` component in order to give the application more functionalilty
 
-In the `ProtectedRoute.jsx` component you will see something called `<Outlet />`. This comes from `react-router-dom`. This is a signal that let's a component know, if I nest something inside the `ProtectedRoute` component, please render it on the page.
+The ProtectedRoute.jsx component works by checking if the user is authenticated before allowing access to certain routes. It uses a custom hook useAuth to check the authentication status by making a request to the server. If the user is authenticated (isAuthenticated is true), it renders the component the route is pointing to using `<Outlet context={{ user }} />`. If not authenticated, it redirects the user to the login page using `<Navigate to="/login" replace />`. During the authentication check, it displays a loading message.
+
+In the `ProtectedRoute.jsx` component you will see a component called `<Outlet />`. This comes from `react-router-dom`. This is a signal that let's the app know, if I nest a route inside the `ProtectedRoute` component, please render it on the page if I pass the authentication tests. I can use it for various Routes
+e.g.
+
+```js
+<ProtectedRoute>
+    <Route path='/dashboard' element={<Dashboard />}>
+    <Route path='/profile' element={<Profile />}>
+</ProtectedRoute>
+```
 
 The backend to this application is located at [Auth-Express-Backend](https://github.com/10-3-pursuit/auth-express-login)
 
