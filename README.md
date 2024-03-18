@@ -32,6 +32,14 @@ e.g.
 </ProtectedRoute>
 ```
 
+### XSRF
+
+In the `Login.jsx` and `Register.jsx` components, the XSRF token is included in the request headers.
+
+The extra XSRF (Cross-Site Request Forgery) token is used as a security measure to protect against CSRF attacks. A CSRF attack forces a logged-in user to execute unwanted actions on a web application in which they're currently authenticated. By requiring an XSRF token with each request, your application ensures that the request is coming from a legitimate source (i.e., your application) and not from a malicious site.
+
+The XSRF token is extracted from cookies in your browser, and sent with requests to perform actions that change the state on the server, such as login and registration. This token is validated by the server to ensure it matches the expected value, thereby preventing CSRF attacks.
+
 ### Go to Backend
 
 Also consult [Auth-Express-Backend Readme](https://github.com/10-3-pursuit/auth-express-login) to see what security precautions have been put into place as well as auth routes for the login and register.
