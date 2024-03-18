@@ -20,9 +20,11 @@ You can use this frontend and the [backend](https://github.com/10-3-pursuit/auth
 
 On the Login page (component) there is a `DemoUser` button where the login functionality has been already created. It runs a function that logs in using the credentials of a seeded user called `demo` that has a password of `password` which you can see in the `handleDemoSignIn` function in `Login.jsx`.
 
+## Security
+
 ### ProtectedRoute Component
 
-In this Frontend app you will have a `ProtectedRoute.jsx` component that you will use to wrap around all components that require a user to be logged in.
+In this Frontend app you will have a `ProtectedRoute.jsx` component that you will use to wrap around all component routes that require a user to be logged in.
 
 The `ProtectedRoute` component works in a similar way to the `<BrowserRouter>` component where we wrap it around the `<App />` component in order to give the application more functionalilty. It works by checking if the user is authenticated before allowing access to certain routes. It uses a custom hook `useAuth` to check the authentication status by making a request to the server. If the user is authenticated (isAuthenticated is true), it renders the component the route is pointing to using `<Outlet context={{ user }} />`. If not authenticated, it redirects the user to the login page using `<Navigate to="/login" replace />`. During the authentication check, it displays a loading message.
 
