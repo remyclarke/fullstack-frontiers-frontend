@@ -18,7 +18,7 @@ You can use this frontend and the [backend](https://github.com/10-3-pursuit/auth
 
 ## Demo User
 
-On the Login page (component) there is a `DemoUser` button where the login functionality has been already created. It runs a function
+On the Login page (component) there is a `DemoUser` button where the login functionality has been already created. It runs a function that logs in using the credentials of a seeded user called `demo` that has a password of `password` which you can see in the `handleDemoSignIn` function in `Login.jsx`.
 
 ### ProtectedRoute Component
 

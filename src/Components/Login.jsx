@@ -53,7 +53,7 @@ const Login = () => {
   //Demo User Login Function
   async function handleDemoSignIn(e) {
     e.preventDefault()
-    const user = { username: 'demo', password: 'pass' }
+    const user = { username: 'demo', password: 'password' }
     postFetch(user)
   }
 
