@@ -32,6 +32,4 @@ e.g.
 </ProtectedRoute>
 ```
 
-The backend to this application is located at [Auth-Express-Backend](https://github.com/10-3-pursuit/auth-express-login)
-
-Also consult that readme to see what security precautions have been put into place as well as auth routes for the login and register.
+Also consult [Auth-Express-Backend Readme](https://github.com/10-3-pursuit/auth-express-login) to see what security precautions have been put into place as well as auth routes for the login and register.
