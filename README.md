@@ -40,6 +40,8 @@ The extra XSRF (Cross-Site Request Forgery) token is used as a security measure 
 
 The XSRF token is extracted from cookies in your browser, and sent with requests to perform actions that change the state on the server, such as login and registration. This token is validated by the server to ensure it matches the expected value, thereby preventing CSRF attacks.
 
+[CSRF - Cross Site Resource Forgery Video](https://www.youtube.com/watch?v=eWEgUcHPle0)
+
 ### Go to Backend
 
 Also consult [Auth-Express-Backend Readme](https://github.com/10-3-pursuit/auth-express-login) to see what security precautions have been put into place as well as auth routes for the login and register.
