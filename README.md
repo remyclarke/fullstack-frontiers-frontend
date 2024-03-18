@@ -48,6 +48,8 @@ The XSRF token is extracted from cookies in your browser, and sent with requests
 
 [CSRF - Cross Site Resource Forgery Video](https://www.youtube.com/watch?v=eWEgUcHPle0)
 
+<hr />
+
 ### Go to Backend
 
 Also consult [Auth-Express-Backend Readme](https://github.com/10-3-pursuit/auth-express-login) to see what security precautions have been put into place as well as auth routes for the login and register.
