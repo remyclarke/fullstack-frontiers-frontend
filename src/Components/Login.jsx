@@ -69,23 +69,27 @@ const Login = () => {
       <br />
       <h4>Login</h4>
       <form onSubmit={handleSubmit}>
-        <input
-          id="username"
-          value={user.username}
-          type="text"
-          placeholder="username"
-          autoComplete="username"
-          onChange={handleChange}
-        />
+        <label htmlFor="username">
+          <input
+            id="username"
+            value={user.username}
+            type="text"
+            placeholder="username"
+            autoComplete="username"
+            onChange={handleChange}
+          />
+        </label>
         <br />
-        <input
-          id="password"
-          value={user.password}
-          type="password"
-          placeholder="password"
-          onChange={handleChange}
-          autoComplete="current-password"
-        />
+        <label htmlFor="password">
+          <input
+            id="password"
+            value={user.password}
+            type="password"
+            placeholder="password"
+            onChange={handleChange}
+            autoComplete="current-password"
+          />
+        </label>
         <br />
         <button>Submit</button>
       </form>
