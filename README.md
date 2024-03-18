@@ -16,6 +16,10 @@ You can use this frontend and the [backend](https://github.com/10-3-pursuit/auth
 - If you want the user to have extra fields you must update the schema and update the `db/seed.sql` files properly.
 - There are commented areas in the code where you must replace things such as the database name etc.
 
+## Demo User
+
+On the Login page (component) there is a `DemoUser` button where the login functionality has been already created. It runs a function
+
 ### ProtectedRoute Component
 
 In this Frontend app you will have a `ProtectedRoute.jsx` component that you will use to wrap around all components that require a user to be logged in.
