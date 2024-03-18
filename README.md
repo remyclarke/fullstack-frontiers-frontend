@@ -24,7 +24,7 @@ On the Login page (component) there is a `DemoUser` button where the login funct
 
 Most of the security is being handled on the backend. But there are two pieces that are also used on the frontend as well in this app.
 
-### ProtectedRoute Component
+#### ProtectedRoute Component
 
 In this Frontend app you will have a `ProtectedRoute.jsx` component that you will use to wrap around all component routes that require a user to be logged in.
 
@@ -40,7 +40,7 @@ e.g.
 </ProtectedRoute>
 ```
 
-### XSRF
+#### XSRF
 
 In the `Login.jsx` and `Register.jsx` components, the XSRF token is included in the request headers.
 
