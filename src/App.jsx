@@ -14,6 +14,8 @@ function App() {
           <div>
             <h1>Welcome to the Auth Starter</h1>
             <Link to="/login">Login</Link>
+            <h2>If you are not logged in you cannot reach this route. Try!</h2>
+            <Link to="/dashboard">Dashboard</Link>
           </div>
         }
       />
