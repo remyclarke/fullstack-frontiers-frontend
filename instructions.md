@@ -50,6 +50,27 @@ The XSRF token is extracted from cookies in your browser, and sent with requests
 
 [CSRF - Cross Site Resource Forgery Video](https://www.youtube.com/watch?v=eWEgUcHPle0)
 
+#### Forms
+
+For every form, you will need to include CSRF credentials. You will need to add the csrf token from the cookie, add the correct method and update the options object. The rest of the fetch should be as you already know. See `Login.jsx` or `Register.jsx` See code below.
+
+```js
+const csrfToken = document.cookie
+  .split('; ')
+  .find((row) => row.startsWith('XSRF-TOKEN='))
+  .split('=')[1] // Extract CSRF token from cookies
+
+const options = {
+  method: 'POST', // could be PUT
+  headers: {
+    'Content-Type': 'application/json',
+    'CSRF-Token': csrfToken, // Include CSRF token in request headers
+  },
+  credentials: 'include', // Important: Include cookies in the request
+  body: JSON.stringify(user),
+}
+```
+
 <hr />
 
 ### Go to Backend
